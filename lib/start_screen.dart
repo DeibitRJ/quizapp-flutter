@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatefulWidget {
-  const StartScreen({super.key});
+  const StartScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   State<StartScreen> createState() => _StartScreenState();
@@ -17,7 +19,9 @@ class _StartScreenState extends State<StartScreen> {
           Image.asset('assets/images/logo_quiz.png'),
           SizedBox(height: 15),
           FilledButton.icon(
-            onPressed: (){},
+            onPressed: (){
+              widget.startQuiz();
+            },
             style: FilledButton.styleFrom(
                 backgroundColor: Color(0xFF56e1f9),
                 shape: RoundedRectangleBorder(
